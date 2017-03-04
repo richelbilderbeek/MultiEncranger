@@ -36,19 +36,19 @@ before_script:
 script: 
   - ./download_other_githubs
   # Console
-  - qmake -qt=qt5 MultiEncrangerConsole.pro
+  - qmake -qt=qt5 ToolMultiEncrangerConsole.pro
   - make debug
-   ./MultiEncrangerConsole
+   ./ToolMultiEncrangerConsole
   # Desktop
-  - qmake -qt=qt5 MultiEncrangerDesktop.pro
+  - qmake -qt=qt5 ToolMultiEncrangerDesktop.pro
   - make debug
-  - ./MultiEncrangerDesktop &
-  - sudo killall MultiEncrangerDesktop
+  - ./ToolMultiEncrangerDesktop &
+  - sudo killall ToolMultiEncrangerDesktop
   # Website
-  - qmake -qt=qt5 MultiEncrangerWebsite.pro
+  - qmake -qt=qt5 ToolMultiEncrangerWebsite.pro
   - make debug
-  - ./MultiEncrangerWebsite &
-  - sudo killall MultiEncrangerWebsite
+  - ./ToolMultiEncrangerWebsite &
+  - sudo killall ToolMultiEncrangerWebsite
   # Get code coverage
   - ./get_code_cov
   - codecov
