@@ -9,8 +9,8 @@
 #include <boost/algorithm/string/split.hpp>
 
 #include "container.h"
-#include "testtimer.h"
-#include "trace.h"
+
+
 #pragma GCC diagnostic pop
 
 ribi::ToolMultiEncrangerMainDialog::ToolMultiEncrangerMainDialog()
@@ -19,9 +19,7 @@ ribi::ToolMultiEncrangerMainDialog::ToolMultiEncrangerMainDialog()
     m_key(0),
     m_plain_text{}
 {
-  #ifndef NDEBUG
-  Test();
-  #endif
+
 }
 
 void ribi::ToolMultiEncrangerMainDialog::Deencrypt()
@@ -66,15 +64,3 @@ void ribi::ToolMultiEncrangerMainDialog::SetPlainText(const std::string& s)
 {
   m_plain_text = s;
 }
-
-#ifndef NDEBUG
-void ribi::ToolMultiEncrangerMainDialog::Test() noexcept
-{
-  {
-    static bool is_tested{false};
-    if (is_tested) return;
-    is_tested = true;
-  }
-  const TestTimer test_timer(__func__,__FILE__,1.0);
-}
-#endif

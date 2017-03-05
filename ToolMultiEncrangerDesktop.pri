@@ -1,14 +1,14 @@
-include(../../Tools/ToolMultiEncranger/ToolMultiEncrangerConsole.pri)
+include(ToolMultiEncrangerConsole.pri)
 
 SOURCES += \
-    ../../Tools/ToolMultiEncranger/qtmultiencrangermaindialog.cpp \
-    ../../Tools/ToolMultiEncranger/qtmultiencrangermenudialog.cpp
+    $$PWD/qtmultiencrangermaindialog.cpp \
+    $$PWD/qtmultiencrangermenudialog.cpp
 
 HEADERS += \
-    ../../Tools/ToolMultiEncranger/qtmultiencrangermaindialog.h \
-    ../../Tools/ToolMultiEncranger/qtmultiencrangermenudialog.h
+    $$PWD/qtmultiencrangermaindialog.h \
+    $$PWD/qtmultiencrangermenudialog.h
 
 FORMS    += \
-    ../../Tools/ToolMultiEncranger/qtmultiencrangermaindialog.ui \
-    ../../Tools/ToolMultiEncranger/qtmultiencrangermenudialog.ui
+    $$PWD/qtmultiencrangermaindialog.ui \
+    $$PWD/qtmultiencrangermenudialog.ui
 

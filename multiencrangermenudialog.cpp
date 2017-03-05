@@ -12,9 +12,6 @@
 #include "loopreader.h"
 #include "encranger.h"
 #include "fileio.h"
-#include "richelbilderbeekprogram.h"
-#include "testtimer.h"
-#include "trace.h"
 #pragma GCC diagnostic pop
 
 //From http://www.richelbilderbeek.nl/CppSaveContainer.htm
@@ -27,9 +24,6 @@ void SaveContainer(const Container& c, const std::string& filename)
 
 int ribi::MultiEncrangerMenuDialog::ExecuteSpecific(const std::vector<std::string>& argv) noexcept
 {
-  #ifndef NDEBUG
-  Test();
-  #endif
   const int argc = static_cast<int>(argv.size());
   if (argc == 1)
   {
@@ -142,8 +136,6 @@ ribi::About ribi::MultiEncrangerMenuDialog::GetAbout() const noexcept
   );
   a.AddLibrary("Encranger version: " + Encranger::GetVersion());
   a.AddLibrary("LoopReader version: " + LoopReader<int>::GetVersion());
-  a.AddLibrary("TestTimer version: " + TestTimer::GetVersion());
-  a.AddLibrary("Trace version: " + Trace::GetVersion());
   return a;
 }
 
@@ -167,13 +159,6 @@ ribi::Help ribi::MultiEncrangerMenuDialog::GetHelp() const noexcept
   );
 }
 
-boost::shared_ptr<const ribi::Program> ribi::MultiEncrangerMenuDialog::GetProgram() const noexcept
-{
-  const boost::shared_ptr<const ribi::Program> p(new ProgramMultiEncranger);
-  assert(p);
-  return p;
-}
-
 std::string ribi::MultiEncrangerMenuDialog::GetVersion() const noexcept
 {
   return "2.2";
@@ -188,15 +173,3 @@ std::vector<std::string> ribi::MultiEncrangerMenuDialog::GetVersionHistory() con
     "2013-11-04: Version 2.2: really use multiple lines"
   };
 }
-
-#ifndef NDEBUG
-void ribi::MultiEncrangerMenuDialog::Test() noexcept
-{
-  {
-    static bool is_tested{false};
-    if (is_tested) return;
-    is_tested = true;
-  }
-  const TestTimer test_timer(__func__,__FILE__,1.0);
-}
-#endif

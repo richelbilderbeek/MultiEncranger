@@ -13,8 +13,6 @@
 #include "qtaboutdialog.h"
 #include "ui_qtmultiencrangermaindialog.h"
 #include "multiencrangermaindialog.h"
-#include "testtimer.h"
-#include "trace.h"
 #pragma GCC diagnostic pop
 
 ribi::QtToolMultiEncrangerMainDialog::QtToolMultiEncrangerMainDialog(QWidget *parent) noexcept
@@ -22,9 +20,6 @@ ribi::QtToolMultiEncrangerMainDialog::QtToolMultiEncrangerMainDialog(QWidget *pa
     ui(new Ui::QtToolMultiEncrangerMainDialog),
     m_dialog(new ToolMultiEncrangerMainDialog)
 {
-  #ifndef NDEBUG
-  Test();
-  #endif
   ui->setupUi(this);
 }
 
@@ -53,16 +48,3 @@ void ribi::QtToolMultiEncrangerMainDialog::on_button_deencrypt_clicked() noexcep
   m_dialog->Deencrypt();
   ui->edit_plaintext->setPlainText(m_dialog->GetPlainText().c_str());
 }
-
-#ifndef NDEBUG
-void ribi::QtToolMultiEncrangerMainDialog::Test() noexcept
-{
-  {
-    static bool is_tested{false};
-    if (is_tested) return;
-    is_tested = true;
-  }
-  ToolMultiEncrangerMainDialog();
-  const TestTimer test_timer(__func__,__FILE__,1.0);
-}
-#endif

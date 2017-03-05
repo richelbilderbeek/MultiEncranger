@@ -1,16 +1,12 @@
-INCLUDEPATH += \
-    ../../Tools/ToolMultiEncranger
+INCLUDEPATH += $$PWD
 
 SOURCES += \
-    ../../Tools/ToolMultiEncranger/multiencrangermaindialog.cpp \
-    ../../Tools/ToolMultiEncranger/multiencrangermenudialog.cpp
+    $$PWD/multiencrangermaindialog.cpp \
+    $$PWD/multiencrangermenudialog.cpp
 
 HEADERS += \
-    ../../Tools/ToolMultiEncranger/multiencrangermaindialog.h \
-    ../../Tools/ToolMultiEncranger/multiencrangermenudialog.h
-
-OTHER_FILES += \
-    ../../Tools/ToolMultiEncranger/Licence.txt
+    $$PWD/multiencrangermaindialog.h \
+    $$PWD/multiencrangermenudialog.h
 
 RESOURCES += \
-    ../../Tools/ToolMultiEncranger/ToolMultiEncranger.qrc
+    $$PWD/ToolMultiEncranger.qrc
