@@ -25,9 +25,9 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 namespace ribi {
 
-struct WtEncrangerMenuDialog : public Wt::WContainerWidget
+struct WtMultiEncrangerMenuDialog : public Wt::WContainerWidget
 {
-  WtEncrangerMenuDialog();
+  WtMultiEncrangerMenuDialog();
 
   private:
   Wt::WWidget * CreateNewAboutDialog() const;

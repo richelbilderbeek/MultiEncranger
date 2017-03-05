@@ -1,23 +1,3 @@
-//---------------------------------------------------------------------------
-/*
-Encranger, tool to test the Encranger class
-Copyright (C) 2009-2011 Richel Bilderbeek
-
-This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, either version 3 of the License, or
-(at your option) any later version.
-
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-GNU General Public License for more details.
-You should have received a copy of the GNU General Public License
-along with this program. If not, see <http://www.gnu.org/licenses/>.
-*/
-//---------------------------------------------------------------------------
-//From http://www.richelbilderbeek.nl/ToolEncranger.htm
-//---------------------------------------------------------------------------
 #pragma GCC diagnostic push
 #pragma GCC diagnostic ignored "-Weffc++"
 #include <cassert>
@@ -35,16 +15,16 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 #include <Wt/WWidget>
 
 #include "about.h"
-#include "toolencrangermenudialog.h"
+#include "multiencrangermenudialog.h"
 #include "wtautoconfig.h"
 #include "wtaboutdialog.h"
-#include "wttoolencrangermaindialog.h"
-#include "wttoolencrangermenudialog.h"
+#include "wttoolmultiencrangermaindialog.h"
+#include "wttoolmultiencrangermenudialog.h"
 
 #include <QFile>
 #pragma GCC diagnostic pop
 
-ribi::WtEncrangerMenuDialog::WtEncrangerMenuDialog()
+ribi::WtMultiEncrangerMenuDialog::WtMultiEncrangerMenuDialog()
 {
   //Create resources
   {
@@ -108,35 +88,35 @@ ribi::WtEncrangerMenuDialog::WtEncrangerMenuDialog()
   }
 }
 
-Wt::WWidget * ribi::WtEncrangerMenuDialog::CreateNewAboutDialog() const
+Wt::WWidget * ribi::WtMultiEncrangerMenuDialog::CreateNewAboutDialog() const
 {
-  About a = ToolEncrangerMenuDialog::GetAbout();
+  About a = MultiEncrangerMenuDialog().GetAbout();
   a.AddLibrary("WtAutoConfig version: " + WtAutoConfig::GetVersion());
   WtAboutDialog * const d = new WtAboutDialog(a,false);
   assert(d);
   return d;
 }
 
-Wt::WWidget * ribi::WtEncrangerMenuDialog::CreateNewMainDialog() const
+Wt::WWidget * ribi::WtMultiEncrangerMenuDialog::CreateNewMainDialog() const
 {
-  WtEncrangerMainDialog * const d = new WtEncrangerMainDialog;
+  WtMultiEncrangerMainDialog * const d = new WtMultiEncrangerMainDialog;
   assert(d);
   return d;
 }
 
-Wt::WWidget * ribi::WtEncrangerMenuDialog::CreateNewWelcomeDialog() const
+Wt::WWidget * ribi::WtMultiEncrangerMenuDialog::CreateNewWelcomeDialog() const
 {
   Wt::WContainerWidget * dialog = new Wt::WContainerWidget;
   dialog->setContentAlignment(Wt::AlignCenter);
   dialog->addWidget(new Wt::WBreak);
-  new Wt::WLabel("Welcome to Encranger",dialog);
+  new Wt::WLabel("Welcome to MultiEncranger",dialog);
   new Wt::WBreak(dialog);
   new Wt::WBreak(dialog);
-  new Wt::WLabel("Encranger demonstrates the Encranger encryption and de-encryption algorithm",dialog);
+  new Wt::WLabel("MultiEncranger demonstrates the Encranger encryption and de-encryption algorithm",dialog);
   new Wt::WBreak(dialog);
   new Wt::WBreak(dialog);
   Wt::WGroupBox * const box = new Wt::WGroupBox("Explanation",dialog);
-  box->addWidget(new Wt::WImage("ToolEncrangerWelcome.png"));
+  box->addWidget(new Wt::WImage("ToolMultiEncrangerWelcome.png"));
   return dialog;
 }
 

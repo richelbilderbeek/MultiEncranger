@@ -8,14 +8,14 @@ struct WtApplication : public Wt::WApplication
 {
   WtApplication(const Wt::WEnvironment& env)
     : Wt::WApplication(env),
-    m_dialog(new ribi::WtEncrangerMenuDialog)
+    m_dialog(new ribi::WtMultiEncrangerMenuDialog)
   {
-    this->setTitle("Encranger");
+    this->setTitle("MultiEncranger");
     this->useStyleSheet("wt.css");
     root()->addWidget(m_dialog);
   }
   private:
-  ribi::WtEncrangerMenuDialog * const m_dialog;
+  ribi::WtMultiEncrangerMenuDialog * const m_dialog;
 };
 
 Wt::WApplication *createApplication(

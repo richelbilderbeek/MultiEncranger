@@ -1,23 +1,5 @@
-//---------------------------------------------------------------------------
-/*
-Encranger, tool to test the Encranger class
-Copyright (C) 2009-2011 Richel Bilderbeek
+#include "wttoolmultiencrangermaindialog.h"
 
-This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, either version 3 of the License, or
-(at your option) any later version.
-
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-GNU General Public License for more details.
-You should have received a copy of the GNU General Public License
-along with this program. If not, see <http://www.gnu.org/licenses/>.
-*/
-//---------------------------------------------------------------------------
-//From http://www.richelbilderbeek.nl/ToolEncranger.htm
-//---------------------------------------------------------------------------
 #include <boost/lexical_cast.hpp>
 
 #include <Wt/WBreak>
@@ -26,11 +8,10 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 #include <Wt/WLabel>
 #include <Wt/WPushButton>
 
-#include "toolencrangermaindialog.h"
-#include "wttoolencrangermaindialog.h"
+#include "multiencrangermaindialog.h"
 
-ribi::WtEncrangerMainDialog::WtEncrangerMainDialog()
-  : m_dialog(new ToolEncrangerMainDialog),
+ribi::WtMultiEncrangerMainDialog::WtMultiEncrangerMainDialog()
+  : m_dialog(new ToolMultiEncrangerMainDialog),
     m_edit_encrypted_text(0),
     m_edit_key(0),
     m_edit_plain_text(0)
@@ -40,7 +21,7 @@ ribi::WtEncrangerMainDialog::WtEncrangerMainDialog()
   ShowMain();
 }
 
-void ribi::WtEncrangerMainDialog::OnDeencryptClick()
+void ribi::WtMultiEncrangerMainDialog::OnDeencryptClick()
 {
   m_dialog->SetEncryptedText(m_edit_encrypted_text->text().toUTF8());
   try
@@ -56,7 +37,7 @@ void ribi::WtEncrangerMainDialog::OnDeencryptClick()
   m_edit_plain_text->setText(m_dialog->GetPlainText().c_str());
 }
 
-void ribi::WtEncrangerMainDialog::OnEncryptClick()
+void ribi::WtMultiEncrangerMainDialog::OnEncryptClick()
 {
   m_dialog->SetPlainText(m_edit_plain_text->text().toUTF8());
   try
@@ -72,7 +53,7 @@ void ribi::WtEncrangerMainDialog::OnEncryptClick()
   m_edit_encrypted_text->setText(m_dialog->GetEncryptedText().c_str());
 }
 
-void ribi::WtEncrangerMainDialog::ShowMain()
+void ribi::WtMultiEncrangerMainDialog::ShowMain()
 {
   this->clear();
   this->addWidget(new Wt::WBreak);
@@ -91,7 +72,7 @@ void ribi::WtEncrangerMainDialog::ShowMain()
   {
     Wt::WPushButton * const button = new Wt::WPushButton("Encrypt");
     button->clicked().connect(
-      this, &ribi::WtEncrangerMainDialog::OnEncryptClick);
+      this, &ribi::WtMultiEncrangerMainDialog::OnEncryptClick);
     this->addWidget(button);
   }
   //Arrow down
@@ -107,7 +88,7 @@ void ribi::WtEncrangerMainDialog::ShowMain()
   {
     Wt::WPushButton * const button = new Wt::WPushButton("Deencrypt");
     button->clicked().connect(
-      this, &ribi::WtEncrangerMainDialog::OnDeencryptClick);
+      this, &ribi::WtMultiEncrangerMainDialog::OnDeencryptClick);
     this->addWidget(button);
   }
   //Arrow up
