@@ -45,11 +45,13 @@ script:
   - qmake -qt=qt5 ToolMultiEncrangerDesktop.pro
   - make debug
   - ./ToolMultiEncrangerDesktop &
+  - sleep 10
   - sudo killall ToolMultiEncrangerDesktop
   # Website
   - qmake -qt=qt5 ToolMultiEncrangerWebsite.pro
   - make debug
   - ./ToolMultiEncrangerWebsite &
+  - sleep 10
   - sudo killall ToolMultiEncrangerWebsite
   # Get code coverage
   - ./get_code_cov
