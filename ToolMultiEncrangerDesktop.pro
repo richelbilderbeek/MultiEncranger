@@ -6,7 +6,7 @@ include(../RibiClasses/CppQtAboutDialog/CppQtAboutDialog.pri)
 include(../RibiClasses/CppQtHideAndShowDialog/CppQtHideAndShowDialog.pri)
 
 include(../RibiClasses/CppContainer/CppContainer.pri)
-include(../RibiClasses/CppEncranger/CppEncranger.pri)
+include(../Encranger/Encranger.pri)
 include(../RibiClasses/CppFuzzy_equal_to/CppFuzzy_equal_to.pri)
 include(../RibiClasses/CppLoopReader/CppLoopReader.pri)
 include(ToolMultiEncrangerDesktop.pri)

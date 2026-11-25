@@ -4,7 +4,7 @@ include(../RibiClasses/CppFileIo/CppFileIo.pri)
 include(../RibiClasses/CppFuzzy_equal_to/CppFuzzy_equal_to.pri)
 include(../RibiClasses/CppHelp/CppHelp.pri)
 include(../RibiClasses/CppMenuDialog/CppMenuDialog.pri)
-include(../RibiClasses/CppEncranger/CppEncranger.pri)
+include(../Encranger/Encranger.pri)
 include(../RibiClasses/CppLoopReader/CppLoopReader.pri)
 include(ToolMultiEncrangerConsole.pri)
 
