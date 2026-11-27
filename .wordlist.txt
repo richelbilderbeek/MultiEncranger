@@ -1,4 +1,5 @@
 Bilderbeek's
+Codecov
 Encranger
 MultiEncranger
 Richèl
